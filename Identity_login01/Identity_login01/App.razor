@@ -1,7 +1,11 @@
 ﻿<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
-            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" >
+            <NotAuthorized>
+                <Identity_login01.Shared.RidirectToLogin></Identity_login01.Shared.RidirectToLogin> @*未認証の場合indexに戻る*@
+            </NotAuthorized>        
+            </AuthorizeRouteView>
             <FocusOnNavigate RouteData="@routeData" Selector="h1" />
         </Found>
         <NotFound>
