@@ -60,4 +60,21 @@ public partial class T_MUSERKANRI : IdentityUser
     [StringLength(1)]
     [Unicode(false)]
     public string? E_GROUPMDMGETSYSFLAG { get; set; }
+
+    [NotMapped] public override string Id { get; set; }
+    [NotMapped] public override string NormalizedUserName { get; set; }
+    [NotMapped] public override string Email { get; set; }
+    [NotMapped] public override string NormalizedEmail { get; set; }
+    [NotMapped] public override bool EmailConfirmed { get; set; }
+    [NotMapped] public override string PasswordHash { get; set; }
+    [NotMapped] public override string SecurityStamp { get; set; }
+    [NotMapped] public override string ConcurrencyStamp { get; set; }
+    [NotMapped] public override string PhoneNumber { get; set; }
+    [NotMapped] public override bool PhoneNumberConfirmed { get; set; }
+    [NotMapped] public override bool TwoFactorEnabled { get; set; }
+    [NotMapped] public override DateTimeOffset? LockoutEnd { get; set; }
+    [NotMapped] public override bool LockoutEnabled { get; set; }
+    [NotMapped] public override int AccessFailedCount { get; set; }
 }
+
+

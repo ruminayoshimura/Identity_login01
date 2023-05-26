@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Identity_login01.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Identity_login01.Data;
 
-public partial class UserDbContext : DbContext
+public partial class UserDbContext : IdentityDbContext<T_MUSERKANRI>
 {
     public UserDbContext()
     {
