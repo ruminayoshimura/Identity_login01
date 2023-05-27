@@ -1,13 +1,14 @@
 ﻿@page
 @using Microsoft.AspNetCore.Identity
+@using Identity_login01.Models;
 @attribute [IgnoreAntiforgeryToken]
-@inject SignInManager<IdentityUser> SignInManager
+@inject SignInManager<T_MUSERKANRI> signInManager
 @functions {
     public async Task<IActionResult> OnPost()
     {
-        if (SignInManager.IsSignedIn(User))
+        if (signInManager.IsSignedIn(signInManager.Context.User))
         {
-            await SignInManager.SignOutAsync();
+            await signInManager.SignOutAsync();
         }
 
         return Redirect("~/");

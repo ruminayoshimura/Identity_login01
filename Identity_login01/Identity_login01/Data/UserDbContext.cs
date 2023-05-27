@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Identity_login01.Data;
 
-public partial class UserDbContext : IdentityDbContext<T_MUSERKANRI>
+public partial class UserDbContext : DbContext
 {
     public UserDbContext()
     {

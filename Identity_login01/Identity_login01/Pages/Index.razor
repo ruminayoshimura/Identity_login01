@@ -1,9 +1,18 @@
 ﻿@page "/"
+@inject IHostEnvironmentAuthenticationStateProvider HostAuthentication
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
-<PageTitle>Index</PageTitle>
+<PageTitle>ログイン画面</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>ログイン画面</h1>
 
-Welcome to your new app.
+<form @onsubmit="Signin">
+    <label>ユーザーID</label>
+    <input type="text" @bind-value=userId />
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    <label>パスワード</label>
+    <input type="password" @bind-value=passWord />
+
+    <button>ログイン</button>
+</form>
+

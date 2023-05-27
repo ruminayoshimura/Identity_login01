@@ -1,5 +1,7 @@
 ﻿@page "/counter"
 @attribute [Authorize]
+@using Microsoft.AspNetCore.Identity;
+@using Identity_login01.Models;
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
@@ -8,11 +10,28 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<button class="btn btn-primary" @onclick="OnPost">ログアウト</button>
+
 @code {
+
     private int currentCount = 0;
+    [Inject]
+    public NavigationManager Navigation { get; set; }
+    [Inject]
+    public SignInManager<T_MUSERKANRI> signInManager { get; set; }
 
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    public async Task OnPost()
+    {
+        if (signInManager.IsSignedIn(signInManager.Context.User))
+        {
+            await signInManager.SignOutAsync();
+        }
+
+        Navigation.NavigateTo("/Counter");
     }
 }
